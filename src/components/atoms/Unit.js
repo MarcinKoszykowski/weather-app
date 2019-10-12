@@ -1,35 +1,36 @@
 import styled from 'styled-components';
 import { light } from 'styled/colors';
 
-const Text = styled.p`
-  font-size: 1.6rem;
+const Unit = styled.p`
+  font-size: 0.8rem;
   color: ${light};
-  letter-spacing: 2px;
-  margin-right: 10px;
-  transition: font-size 0.2s, margin 0.2s;
+  border-bottom: ${({ top }) => (top ? `1px solid` : null)};
+  border-bottom-color: ${light};
 
   @media screen and (max-width: 1400px) {
-    font-size: 1.4rem;
+    font-size: 0.75rem;
   }
   @media screen and (max-width: 1250px) {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
   }
   @media screen and (max-width: 1100px) {
-    font-size: 1.1rem;
-    margin-right: 5px;
+    font-size: 0.65rem;
   }
   @media screen and (max-width: 900px) {
-    font-size: 1.6rem;
+    font-size: 0.8rem;
   }
   @media screen and (max-width: 700px) {
-    font-size: 1.4rem;
+    font-size: 0.75rem;
   }
   @media screen and (max-width: 600px) {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
   }
   @media screen and (max-width: 500px) {
-    margin-right: 0;
-    font-size: 0.9rem;
+    font-size: 0.5rem;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 0.4rem;
   }
 `;
-export default Text;
+
+export default Unit;

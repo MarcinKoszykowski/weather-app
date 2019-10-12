@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import Element from 'components/molecules/Element';
+import Wind from 'components/molecules/Wind';
+import Fall from 'components/molecules/Fall';
 import pressureIcon from 'assets/icons/wi-barometer.svg';
 import humidityIcon from 'assets/icons/wi-humidity.svg';
-import { setPressure, setPercent } from 'data/functions';
+import windIcon from 'assets/icons/wi-direction-up.svg';
+import cloudIcon from 'assets/icons/wi-cloud.svg';
+import snowIcon from 'assets/icons/wi-snowflake-cold.svg';
+import rainIcon from 'assets/icons/wi-raindrop.svg';
+import { setPressure, setPercent, setWind, setFloatWithAccuracy } from 'data/functions';
 import AppContext from 'context';
-import Element from '../molecules/Element';
 
 const Wrapper = styled.div`
   display: grid;
@@ -26,12 +32,16 @@ const Wrapper = styled.div`
 
 function RightColumn() {
   const { current } = useContext(AppContext);
-  const { pres, rh } = current;
+  const { pres, rh, wind_dir: windDir, wind_spd: windSpd, clouds, precip, snow } = current;
 
   return (
     <Wrapper>
       <Element icon={pressureIcon} text={setPressure(pres)} />
       <Element icon={humidityIcon} text={setPercent(rh)} />
+      <Wind icon={windIcon} text={setWind(windSpd)} dir={windDir} />
+      <Element icon={cloudIcon} text={setPercent(clouds)} />
+      <Fall icon={rainIcon} text={setFloatWithAccuracy(precip, 2)} />
+      <Fall icon={snowIcon} text={setFloatWithAccuracy(snow, 2)} />
     </Wrapper>
   );
 }
