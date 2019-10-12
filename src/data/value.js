@@ -9,5 +9,15 @@ const created = {
   href: 'http://code-mk.com/',
   link: 'CODE:MK',
 };
+const riseAndSet = {
+  moon: {
+    rise: 'moonrise',
+    set: 'moonset',
+  },
+  sun: {
+    rise: 'sunrise',
+    set: 'sunset',
+  },
+};
 
-export { placeholder, routes, title, created };
+export { placeholder, routes, title, created, riseAndSet };
