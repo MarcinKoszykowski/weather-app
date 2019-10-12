@@ -9,6 +9,7 @@
       "jest": true
     },
     "globals": {
+      "fetch": true,
       "document": true
     },
     "plugins": [
@@ -16,6 +17,7 @@
     ],
     "rules": {
       "import/no-unresolved": 1,
+      "no-console": "off",
       "react/jsx-filename-extension": [
         1,
         {

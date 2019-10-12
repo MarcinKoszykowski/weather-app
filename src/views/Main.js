@@ -3,17 +3,19 @@ import styled from 'styled-components';
 import FormMain from 'components/molecules/FormMain';
 import Title from 'components/atoms/Title';
 import { title } from 'data/value';
+import Created from 'components/molecules/Created';
 
-const Wrapper = styled.div`
+const Section = styled.section`
   align-items: center;
   padding-top: 20vh;
 `;
 
 const Main = () => (
-  <Wrapper>
+  <Section>
     <Title>{title}</Title>
     <FormMain />
-  </Wrapper>
+    <Created />
+  </Section>
 );
 
 export default Main;

@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
 }
 body {
+    min-width: 315px;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     box-sizing: border-box;
