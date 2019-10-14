@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { white } from 'styled/colors';
 
-const RiseAndSetTitle = styled.h1`
+const SunTitle = styled.h1`
   color: ${white};
   font-size: 0.95rem;
   letter-spacing: 2px;
@@ -22,4 +22,4 @@ const RiseAndSetTitle = styled.h1`
   }
 `;
 
-export default RiseAndSetTitle;
+export default SunTitle;

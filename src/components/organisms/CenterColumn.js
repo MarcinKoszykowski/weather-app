@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { grey } from 'styled/colors';
-import RiseAndSet from 'components/molecules/RiseAndSet';
+import Moon from 'components/molecules/Sun';
 import AppContext from 'context';
 import { setTime } from 'data/functions';
 import Temp from 'components/molecules/Temp';
+import { moon } from 'data/value';
+import moonriseIcon from 'assets/icons/wi-moonrise.svg';
+import moonsetIcon from 'assets/icons/wi-moonset.svg';
 
 const Wrapper = styled.div`
   display: grid;
@@ -33,12 +36,14 @@ function CenterColumn() {
   const { data, current } = useContext(AppContext);
   const { moonset_ts: moonsetTS, moonrise_ts: moonriseTS } = data;
   const { timezone } = current;
+  const { moonrise, moonset } = moon;
+
   return (
     <Wrapper>
       <Temp />
       <Box>
-        <RiseAndSet time={setTime(moonriseTS, timezone)} />
-        <RiseAndSet time={setTime(moonsetTS, timezone)} />
+        <Moon title={moonrise} icon={moonriseIcon} time={setTime(moonriseTS, timezone)} />
+        <Moon title={moonset} icon={moonsetIcon} time={setTime(moonsetTS, timezone)} />
       </Box>
     </Wrapper>
   );
