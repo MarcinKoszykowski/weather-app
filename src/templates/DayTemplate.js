@@ -30,28 +30,8 @@ function DayTemplate() {
   return (
     <Wrapper>
       {daily.map(day => {
-        const {
-          weather: { code },
-          min_temp: minTemp,
-          max_temp: maxTemp,
-          temp,
-          valid_date: date,
-          wind_dir: dir,
-          wind_spd: speed,
-        } = day;
-
-        return (
-          <Day
-            key={date}
-            code={code}
-            minTemp={minTemp}
-            maxTemp={maxTemp}
-            temp={temp}
-            date={date}
-            dir={dir}
-            speed={speed}
-          />
-        );
+        const { valid_date: date } = day;
+        return <Day key={date} {...day} />;
       })}
     </Wrapper>
   );

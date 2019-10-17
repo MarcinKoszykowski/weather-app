@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { setTemp } from 'data/functions';
+import { getTemp } from 'data/functions';
 import TempText from 'components/atoms/TempText';
 import AppContext from 'context';
 
@@ -21,9 +21,9 @@ function Temp() {
 
   return (
     <Wrapper>
-      <TempText tempMax>{setTemp(maxTemp)}</TempText>
-      <TempText main>{setTemp(temp)}</TempText>
-      <TempText>{setTemp(minTemp)}</TempText>
+      <TempText tempMax>{getTemp(maxTemp)}</TempText>
+      <TempText main>{getTemp(temp)}</TempText>
+      <TempText>{getTemp(minTemp)}</TempText>
     </Wrapper>
   );
 }

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { yellow } from 'styled/colors';
 import Sun from 'components/molecules/Sun';
 import AppContext from 'context';
-import { setTime, setIcon } from 'data/functions';
+import { getTime, getIcon } from 'data/functions';
 import MainIcon from 'components/atoms/MainIcon';
 import sunriseIcon from 'assets/icons/wi-sunrise.svg';
 import sunsetIcon from 'assets/icons/wi-sunset.svg';
@@ -44,10 +44,10 @@ function LeftColumn() {
 
   return (
     <Wrapper>
-      <MainIcon src={setIcon(code)} />
+      <MainIcon src={getIcon(code)} />
       <Box>
-        <Sun title={sunrise} icon={sunriseIcon} time={setTime(sunriseTS, timezone)} />
-        <Sun title={sunset} icon={sunsetIcon} time={setTime(sunsetTS, timezone)} />
+        <Sun title={sunrise} icon={sunriseIcon} time={getTime(sunriseTS, timezone)} />
+        <Sun title={sunset} icon={sunsetIcon} time={getTime(sunsetTS, timezone)} />
       </Box>
     </Wrapper>
   );

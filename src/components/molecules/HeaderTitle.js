@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { routes , title } from 'data/value';
+import { routes, title } from 'data/value';
 import Title from 'components/atoms/Title';
-
 
 const TitleStyled = styled(Title)`
   margin: 0;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { setTemp } from 'data/functions';
+import { getTemp } from 'data/functions';
 import DayTempText from 'components/atoms/Day/DayTempText';
 
 const Wrapper = styled.div`
@@ -25,10 +25,10 @@ const Box = styled.div`
 
 const DayTemp = ({ minTemp, maxTemp, temp }) => (
   <Wrapper>
-    <DayTempText main>{setTemp(temp)}</DayTempText>
+    <DayTempText main>{getTemp(temp)}</DayTempText>
     <Box>
-      <DayTempText tempMax>{setTemp(maxTemp)}</DayTempText>
-      <DayTempText>{setTemp(minTemp)}</DayTempText>
+      <DayTempText tempMax>{getTemp(maxTemp)}</DayTempText>
+      <DayTempText>{getTemp(minTemp)}</DayTempText>
     </Box>
   </Wrapper>
 );

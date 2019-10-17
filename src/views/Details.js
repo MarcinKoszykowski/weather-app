@@ -10,8 +10,9 @@ import Error from 'components/molecules/Error';
 
 function Details() {
   const [open, setOpen] = useState(false);
-  const { main: mainRoute } = routes;
   const { handleSetCurrent, handleSetData, handleSetDaily, city, error } = useContext(AppContext);
+
+  const { main: mainRoute } = routes;
   const { current: currentURL, daily: dailyURL } = url;
 
   const getDataFromAPI = async urlAPI => {
@@ -28,11 +29,9 @@ function Details() {
     const current = await getDataFromAPI(currentURL);
     const currentData = await current.data[0];
     await handleSetCurrent(currentData);
-    setOpen(true);
   };
 
   const getDaily = async () => {
-    setOpen(false);
     const daily = await getDataFromAPI(dailyURL);
     const dailyData = await daily.data;
 
@@ -45,16 +44,18 @@ function Details() {
     if (city === '') {
       window.location.href = mainRoute;
     } else {
+      setOpen(false);
       await getDaily();
       await getCurrent();
+      setOpen(true);
     }
   };
 
-  const handleEffect = useCallback(checkCityState, [city]);
+  const handleCityStateCallback = useCallback(checkCityState, [city]);
 
   useEffect(() => {
-    handleEffect();
-  }, [handleEffect]);
+    handleCityStateCallback();
+  });
 
   return (
     <section>

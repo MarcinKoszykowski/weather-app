@@ -9,7 +9,7 @@ import windIcon from 'assets/icons/wi-direction-up.svg';
 import cloudIcon from 'assets/icons/wi-cloud.svg';
 import snowIcon from 'assets/icons/wi-snowflake-cold.svg';
 import rainIcon from 'assets/icons/wi-raindrop.svg';
-import { setPressure, setPercent, setWind, setFloatWithAccuracy } from 'data/functions';
+import { getPressure, getPercent, getWind, getFloatWithAccuracy } from 'data/functions';
 import AppContext from 'context';
 
 const Wrapper = styled.div`
@@ -37,12 +37,12 @@ function RightColumn() {
 
   return (
     <Wrapper>
-      <Element icon={pressureIcon} text={setPressure(pres)} />
-      <Element icon={humidityIcon} text={setPercent(rh)} />
-      <Wind icon={windIcon} text={setWind(windSpd)} dir={windDir} />
-      <Element icon={cloudIcon} text={setPercent(clouds)} />
-      <Fall icon={rainIcon} text={setFloatWithAccuracy(precip, 2)} />
-      <Fall icon={snowIcon} text={setFloatWithAccuracy(snow, 2)} />
+      <Element icon={pressureIcon} text={getPressure(pres)} />
+      <Element icon={humidityIcon} text={getPercent(rh)} />
+      <Wind icon={windIcon} text={getWind(windSpd)} dir={windDir} />
+      <Element icon={cloudIcon} text={getPercent(clouds)} />
+      <Fall icon={rainIcon} text={getFloatWithAccuracy(precip, 2)} />
+      <Fall icon={snowIcon} text={getFloatWithAccuracy(snow, 2)} />
     </Wrapper>
   );
 }

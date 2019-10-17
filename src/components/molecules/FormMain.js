@@ -27,10 +27,11 @@ const Form = styled.form`
 function FormMain({ open }) {
   const { handleMainOnSubmit } = useContext(AppContext);
   const [formCity, setFormCity] = useState('');
+  const history = useHistory();
+
   const inputChange = e => {
     setFormCity(e.target.value);
   };
-  const history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,14 +41,7 @@ function FormMain({ open }) {
 
   return (
     <Form open={open} autoComplete="off" onSubmit={e => handleSubmit(e)}>
-      <Input
-        open={open}
-        required
-        type="text"
-        placeholder={placeholder}
-        value={formCity}
-        onChange={inputChange}
-      />
+      <Input open={open} required type="text" placeholder={placeholder} value={formCity} onChange={inputChange} />
       <Button icon={searchIcon} />
     </Form>
   );

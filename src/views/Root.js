@@ -9,14 +9,14 @@ import { routes } from 'data/value';
 import url from 'data/url';
 
 function Root() {
-  const { main: mainRoute, details: detailsRoute } = routes;
-  const { daily: dailyURL } = url;
-
   const [data, setData] = useState({});
   const [current, setCurrent] = useState({});
   const [daily, setDaily] = useState([]);
   const [error, setError] = useState(false);
   const [city, setCity] = useState('');
+
+  const { main: mainRoute, details: detailsRoute } = routes;
+  const { daily: dailyURL } = url;
 
   const toggleError = () => {
     setError(true);

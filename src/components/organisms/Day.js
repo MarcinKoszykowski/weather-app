@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colorWithOpacity, white } from 'styled/colors';
-import { setIcon, setWind } from 'data/functions';
+import { getIcon, getWind } from 'data/functions';
 import Wind from 'components/molecules/Wind';
 import windIcon from 'assets/icons/wi-direction-up.svg';
 import Date from 'components/molecules/Date';
@@ -21,25 +21,27 @@ const Wrapper = styled.div`
   }
 `;
 
-function Day({ code, minTemp, maxTemp, temp, date, dir, speed }) {
+function Day({ weather: { code }, min_temp: minTemp, max_temp: maxTemp, temp, valid_date: date, wind_dir: dir, wind_spd: speed }) {
   return (
     <Wrapper>
-      <DayIcon src={setIcon(code)} />
+      <DayIcon src={getIcon(code)} />
       <DayTemp maxTemp={maxTemp} minTemp={minTemp} temp={temp} />
-      <Wind day icon={windIcon} text={setWind(speed)} dir={dir} />
+      <Wind day icon={windIcon} text={getWind(speed)} dir={dir} />
       <Date date={date} />
     </Wrapper>
   );
 }
 
 Day.propTypes = {
-  code: PropTypes.number.isRequired,
-  minTemp: PropTypes.number.isRequired,
-  maxTemp: PropTypes.number.isRequired,
+  weather: PropTypes.shape({
+    code: PropTypes.number.isRequired,
+  }).isRequired,
+  min_temp: PropTypes.number.isRequired,
+  max_temp: PropTypes.number.isRequired,
   temp: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired,
-  dir: PropTypes.number.isRequired,
-  speed: PropTypes.number.isRequired,
+  valid_date: PropTypes.string.isRequired,
+  wind_dir: PropTypes.number.isRequired,
+  wind_spd: PropTypes.number.isRequired,
 };
 
 export default Day;

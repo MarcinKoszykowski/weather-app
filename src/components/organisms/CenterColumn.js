@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { grey } from 'styled/colors';
 import Moon from 'components/molecules/Sun';
 import AppContext from 'context';
-import { setTime } from 'data/functions';
+import { getTime } from 'data/functions';
 import Temp from 'components/molecules/Temp';
 import { moon } from 'data/value';
 import moonriseIcon from 'assets/icons/wi-moonrise.svg';
@@ -43,8 +43,8 @@ function CenterColumn() {
     <Wrapper>
       <Temp />
       <Box>
-        <Moon title={moonrise} icon={moonriseIcon} time={setTime(moonriseTS, timezone)} />
-        <Moon title={moonset} icon={moonsetIcon} time={setTime(moonsetTS, timezone)} />
+        <Moon title={moonrise} icon={moonriseIcon} time={getTime(moonriseTS, timezone)} />
+        <Moon title={moonset} icon={moonsetIcon} time={getTime(moonsetTS, timezone)} />
       </Box>
     </Wrapper>
   );
