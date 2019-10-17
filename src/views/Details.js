@@ -55,7 +55,7 @@ function Details() {
 
   useEffect(() => {
     handleCityStateCallback();
-  });
+  }, [handleCityStateCallback]);
 
   return (
     <section>
