@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { white } from 'styled/colors';
+import { titleAnimation } from 'styled/animations';
 
 const Title = styled.h1`
   margin-bottom: 10vh;
@@ -8,6 +9,7 @@ const Title = styled.h1`
   letter-spacing: 5px;
   font-weight: 500;
   color: ${white};
+  animation: ${titleAnimation} 1s ease-in-out 0.5s backwards;
   transition: 0.2s font-size, 0.2s margin-bottom;
 
   @media screen and (max-width: 850px) {

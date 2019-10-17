@@ -4,7 +4,7 @@ import { light } from 'styled/colors';
 const Text = styled.p`
   font-size: 1.6rem;
   color: ${light};
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-right: 10px;
   transition: font-size 0.2s, margin 0.2s;
 
@@ -30,6 +30,9 @@ const Text = styled.p`
   @media screen and (max-width: 500px) {
     margin-right: 0;
     font-size: 0.9rem;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 0.7rem;
   }
 `;
 export default Text;

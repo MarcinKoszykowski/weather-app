@@ -14,10 +14,14 @@ const Wrapper = styled.div`
 `;
 
 function Temp() {
-  const { max_temp: maxTemp, temp, min_temp: minTemp } = useContext(AppContext);
+  const {
+    data: { max_temp: maxTemp, min_temp: minTemp },
+    current: { temp },
+  } = useContext(AppContext);
+
   return (
     <Wrapper>
-      <TempText max>{setTemp(maxTemp)}</TempText>
+      <TempText tempMax>{setTemp(maxTemp)}</TempText>
       <TempText main>{setTemp(temp)}</TempText>
       <TempText>{setTemp(minTemp)}</TempText>
     </Wrapper>

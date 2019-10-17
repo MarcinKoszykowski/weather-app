@@ -1,70 +1,81 @@
 import styled, { css } from 'styled-components';
 import { white, red, blue } from 'styled/colors';
 
-const TempText = styled.p`
+const DayTempText = styled.p`
+  font-size: 1rem;
   color: ${({ tempMax }) => (tempMax ? red : blue)};
   font-weight: 600;
-  font-size: 1.6rem;
-  letter-spacing: 1px;
   transition: font-size 0.2s;
 
+  @media screen and (max-width: 1500px) {
+    font-size: 0.9rem;
+  }
   @media screen and (max-width: 1400px) {
-    font-size: 1.4rem;
+    font-size: 0.8rem;
   }
   @media screen and (max-width: 1250px) {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
   }
   @media screen and (max-width: 1100px) {
-    font-size: 1.1rem;
+    font-size: 0.65rem;
   }
   @media screen and (max-width: 900px) {
-    font-size: 1.6rem;
-  }
-  @media screen and (max-width: 700px) {
-    font-size: 1.4rem;
-  }
-  @media screen and (max-width: 600px) {
-    font-size: 1.2rem;
-  }
-  @media screen and (max-width: 500px) {
     font-size: 1rem;
   }
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 700px) {
     font-size: 0.8rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 0.7rem;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 0.65rem;
+  }
+  @media screen and (max-width: 350px) {
+    font-size: 0.5rem;
   }
 
   ${({ main }) =>
     main &&
     css`
+      font-size: 2rem;
       color: ${white};
-      margin: 10px 0;
-      font-size: 2.8rem;
+      margin-right: 15px;
+      font-weight: 400;
+      transition: margin 0.2s, font-size 0.2s;
 
+      @media screen and (max-width: 1500px) {
+        font-size: 1.8rem;
+      }
       @media screen and (max-width: 1400px) {
-        font-size: 2.5rem;
+        font-size: 1.6rem;
+        margin-right: 10px;
       }
       @media screen and (max-width: 1250px) {
-        font-size: 2.2rem;
+        font-size: 1.4rem;
       }
       @media screen and (max-width: 1100px) {
-        font-size: 1.9rem;
+        font-size: 1.3rem;
       }
       @media screen and (max-width: 900px) {
-        font-size: 2.8rem;
+        font-size: 2rem;
+        margin-right: 15px;
       }
       @media screen and (max-width: 700px) {
-        font-size: 2.5rem;
+        font-size: 1.6rem;
+        margin-right: 10px;
       }
       @media screen and (max-width: 600px) {
-        font-size: 2.1rem;
+        font-size: 1.4rem;
       }
       @media screen and (max-width: 500px) {
-        font-size: 1.5rem;
+        margin-right: 5px;
+        font-size: 1.1rem;
       }
       @media screen and (max-width: 350px) {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     `}
 `;
 
-export default TempText;
+export default DayTempText;

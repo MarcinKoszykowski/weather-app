@@ -1,4 +1,4 @@
-import weaterIcon from 'data/weatherIcon';
+import weatherIcon from 'data/weatherIcon';
 import { colorWithOpacity, black } from 'styled/colors';
 import moment from 'moment-timezone';
 
@@ -9,7 +9,10 @@ const setTime = (timestamp, timezone) =>
 const setTemp = temp => `${temp} \xB0C`;
 const setPercent = text => `${text} %`;
 const setWind = speed => `${parseFloat(speed).toFixed(2)} m/s`;
-const setIcon = icon => `assets/icons/${weaterIcon[icon]}.svg`;
+const setIcon = code => {
+  const icon = weatherIcon[code];
+  return require(`../assets/icons/${icon}.svg`);
+};
 const setPressure = pressure => `${parseFloat(pressure).toFixed(0)} hPa`;
 const setFloatWithAccuracy = (text, accuracy) => parseFloat(text).toFixed(accuracy);
 const setBackgroundColorWithOpacity = opacity =>

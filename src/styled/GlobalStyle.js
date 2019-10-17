@@ -24,6 +24,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     box-sizing: border-box;
+    overflow-x: hidden;
     animation: ${opacityZeroToOne} .5s ease-in backwards;
 
     &::after {

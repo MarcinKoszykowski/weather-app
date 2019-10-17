@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import FormMain from 'components/molecules/FormMain';
-import Title from 'components/atoms/Title';
-import { title } from 'data/value';
-import Created from 'components/molecules/Created';
+import MainTemplate from 'templates/MainTemplate';
+import AppContext from 'context';
+import Error from 'components/molecules/Error';
 
 const Section = styled.section`
   align-items: center;
   padding-top: 20vh;
 `;
 
-const Main = () => (
-  <Section>
-    <Title>{title}</Title>
-    <FormMain />
-    <Created />
-  </Section>
-);
+function Main() {
+  const { error } = useContext(AppContext);
+
+  return (
+    <Section>
+      <MainTemplate />
+      {error && <Error />}
+    </Section>
+  );
+}
 
 export default Main;

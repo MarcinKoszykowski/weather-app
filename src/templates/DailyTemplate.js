@@ -10,7 +10,7 @@ import countries from 'data/countries';
 import Country from 'components/atoms/Country';
 
 const Box = styled.div`
-  background-color: ${colorWithOpacity(white, 0.1)};
+  background-color: ${colorWithOpacity(white, 0.15)};
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
@@ -37,8 +37,9 @@ const Wrapper = styled.div`
 `;
 
 function DailyTemplate() {
-  const { current } = useContext(AppContext);
-  const { city_name: cityName, country_code: countryCode } = current;
+  const {
+    current: { city_name: cityName, country_code: countryCode },
+  } = useContext(AppContext);
 
   return (
     <Wrapper>

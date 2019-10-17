@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { white, colorWithOpacity } from 'styled/colors';
 
 const Input = styled.input`
@@ -28,6 +28,23 @@ const Input = styled.input`
   @media screen and (max-width: 450px) {
     height: 40px;
   }
+
+  ${({ open }) =>
+    open &&
+    css`
+      @media screen and (max-width: 1450px) {
+        width: 500px;
+      }
+      @media screen and (max-width: 1250px) {
+        width: 375px;
+      }
+      @media screen and (max-width: 900px) {
+        width: 550px;
+      }
+      @media screen and (max-width: 700px) {
+        width: 75vw;
+      }
+    `}
 `;
 
 export default Input;

@@ -33,10 +33,13 @@ const Box = styled.div`
 `;
 
 function LeftColumn() {
-  const { data, current } = useContext(AppContext);
-  const { sunset_ts: sunsetTS, sunrise_ts: sunriseTS } = data;
-  const { timezone, weather } = current;
-  const { code } = weather;
+  const {
+    data: { sunset_ts: sunsetTS, sunrise_ts: sunriseTS },
+    current: {
+      timezone,
+      weather: { code },
+    },
+  } = useContext(AppContext);
   const { sunrise, sunset } = sun;
 
   return (

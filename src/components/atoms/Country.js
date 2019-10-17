@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colorWithOpacity, white } from 'styled/colors';
 
 const Country = styled.h1`
-  background-color: ${colorWithOpacity(white, 0.1)};
+  background-color: ${colorWithOpacity(white, 0.15)};
   padding: 5px 0;
   margin-bottom: 10px;
   text-transform: uppercase;

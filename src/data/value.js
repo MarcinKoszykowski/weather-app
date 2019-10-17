@@ -20,4 +20,6 @@ const sun = {
   sunset: 'sunset',
 };
 
-export { placeholder, routes, title, created, sun, moon };
+const error = 'city not found';
+
+export { placeholder, routes, title, created, sun, moon, error };

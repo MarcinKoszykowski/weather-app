@@ -31,8 +31,9 @@ const Wrapper = styled.div`
 `;
 
 function RightColumn() {
-  const { current } = useContext(AppContext);
-  const { pres, rh, wind_dir: windDir, wind_spd: windSpd, clouds, precip, snow } = current;
+  const {
+    current: { pres, rh, wind_dir: windDir, wind_spd: windSpd, clouds, precip, snow },
+  } = useContext(AppContext);
 
   return (
     <Wrapper>

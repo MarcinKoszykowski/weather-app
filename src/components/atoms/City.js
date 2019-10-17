@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colorWithOpacity, white, light } from 'styled/colors';
 
 const City = styled.h1`
-  background-color: ${colorWithOpacity(white, 0.1)};
+  background-color: ${colorWithOpacity(white, 0.15)};
   padding: 10px 0;
   margin-bottom: 10px;
   text-transform: uppercase;

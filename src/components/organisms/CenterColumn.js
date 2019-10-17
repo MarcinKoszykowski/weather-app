@@ -33,9 +33,10 @@ const Box = styled.div`
 `;
 
 function CenterColumn() {
-  const { data, current } = useContext(AppContext);
-  const { moonset_ts: moonsetTS, moonrise_ts: moonriseTS } = data;
-  const { timezone } = current;
+  const {
+    data: { moonset_ts: moonsetTS, moonrise_ts: moonriseTS },
+    current: { timezone },
+  } = useContext(AppContext);
   const { moonrise, moonset } = moon;
 
   return (

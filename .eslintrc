@@ -9,14 +9,17 @@
       "jest": true
     },
     "globals": {
+      "require": true,
+      "window": true,
       "history": true,
-      "fetch": true,
       "document": true
     },
     "plugins": [
       "react-hooks"
     ],
     "rules": {
+      "global-require": 0,
+      "import/no-dynamic-require": 0,
       "import/no-unresolved": 1,
       "no-console": "off",
       "react/jsx-filename-extension": [

@@ -1,4 +1,4 @@
-const weaterIcon = {
+const weatherIcon = {
   '201': 'wi-thunderstorm',
   '202': 'wi-thunderstorm',
   '230': 'wi-storm-showers',
@@ -38,4 +38,4 @@ const weaterIcon = {
   '900': 'wi-na',
 };
 
-export default weaterIcon;
+export default weatherIcon;

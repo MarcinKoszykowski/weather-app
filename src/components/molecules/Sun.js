@@ -18,7 +18,7 @@ const Sun = ({ title, icon, time }) => (
   <Wrapper>
     <SunTitle>{title}</SunTitle>
     <Box>
-      <SunIcon>{icon}</SunIcon>
+      <SunIcon src={icon} />
       <Time>{time}</Time>
     </Box>
   </Wrapper>

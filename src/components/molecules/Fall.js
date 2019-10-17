@@ -16,13 +16,22 @@ const TextStyled = styled(Text)`
     margin-right: 8px;
     font-size: 1.4rem;
   }
+  @media screen and (max-width: 1250px) {
+    font-size: 1.2rem;
+  }
   @media screen and (max-width: 1100px) {
     margin-right: 5px;
     font-size: 1.1rem;
   }
+  @media screen and (max-width: 900px) {
+    font-size: 1.6rem;
+  }
   @media screen and (max-width: 700px) {
     margin-right: 8px;
     font-size: 1.4rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 1.2rem;
   }
   @media screen and (max-width: 500px) {
     margin-right: 4px;
