@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from 'context';
-import Day from 'components/organisms/Day';
+import Day from 'components/Day/Day';
 
 const Wrapper = styled.div`
   display: grid;
