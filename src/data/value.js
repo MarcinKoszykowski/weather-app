@@ -6,7 +6,7 @@ const routes = {
 const title = 'Weather APP';
 const created = {
   text: 'Created by Marcin Koszykowski | ',
-  href: 'http://code-mk.com/',
+  href: 'https://code-mk.com/',
   link: 'CODE:MK',
 };
 
