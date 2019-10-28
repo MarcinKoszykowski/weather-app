@@ -7,11 +7,11 @@ import Icon from 'components/Wind/atoms/Icon';
 const Wrapper = styled.div`
   display: inline-flex;
   align-items: center;
-  margin: 5px auto auto;
+  margin: ${({ day }) => (day ? `5px auto auto` : `0 auto`)};
 `;
 
 const Wind = ({ day, text, icon, dir }) => (
-  <Wrapper>
+  <Wrapper day={day}>
     <Text day={day}>{text}</Text>
     <Icon day={day} src={icon} dir={dir} />
   </Wrapper>

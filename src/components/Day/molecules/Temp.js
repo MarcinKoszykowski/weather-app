@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { getTemp } from 'data/functions';
-import Text from 'components/Day/atoms/Text';
+import Text from '../atoms/Text';
 
 const Wrapper = styled.div`
   display: inline-flexbox;

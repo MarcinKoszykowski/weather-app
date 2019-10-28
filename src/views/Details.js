@@ -1,69 +1,44 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react';
+import styled from 'styled-components';
 import AppContext from 'context';
-import axios from 'axios';
-import url from 'data/url';
 import { routes } from 'data/value';
+import { getData } from 'data/helpers';
 import DetailsTemplate from 'templates/DetailsTemplate';
-import Loading from 'components/molecules/Loading';
-import Header from 'components/organisms/Header';
-import Error from 'components/molecules/Error';
+import Loading from 'components/Loading/Loading';
+import Header from 'components/Header/Header';
+import Error from 'components/Error/Error';
 
-function Details() {
+const Wrapper = styled.section`
+  max-width: 1600px;
+  margin: 0 auto;
+`;
+const Details = () => {
   const [open, setOpen] = useState(false);
-  const { handleSetCurrent, handleSetData, handleSetDaily, city, error } = useContext(AppContext);
-
-  const { main: mainRoute } = routes;
-  const { current: currentURL, daily: dailyURL } = url;
-
-  const getDataFromAPI = async urlAPI => {
-    try {
-      const response = await axios.get(urlAPI(city));
-      const responseData = await response.data;
-      return responseData;
-    } catch (err) {
-      console.error(err);
-    }
-    return null;
-  };
-  const getCurrent = async () => {
-    const current = await getDataFromAPI(currentURL);
-    const currentData = await current.data[0];
-    await handleSetCurrent(currentData);
-  };
-
-  const getDaily = async () => {
-    const daily = await getDataFromAPI(dailyURL);
-    const dailyData = await daily.data;
-
-    await handleSetData(dailyData[0]);
-    dailyData.shift();
-    await handleSetDaily(dailyData);
-  };
+  const { setCurrent, setData, setDaily, city } = useContext(AppContext);
 
   const checkCityState = async () => {
     if (city === '') {
-      window.location.href = mainRoute;
+      window.location.href = routes.main;
     } else {
       setOpen(false);
-      await getDaily();
-      await getCurrent();
+      await getData(city, setCurrent, setData, setDaily);
       setOpen(true);
     }
   };
 
-  const handleCityStateCallback = useCallback(checkCityState, [city]);
+  const handleCityState = useCallback(checkCityState, [city]);
 
   useEffect(() => {
-    handleCityStateCallback();
-  }, [handleCityStateCallback]);
+    handleCityState();
+  }, [handleCityState]);
 
   return (
-    <section>
-      {error && <Error details />}
+    <Wrapper>
+      <Error details />
       <Header />
       {open ? <DetailsTemplate /> : <Loading />}
-    </section>
+    </Wrapper>
   );
-}
+};
 
 export default Details;

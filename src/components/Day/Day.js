@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colorWithOpacity, white } from 'styled/colors';
 import { getIcon, getWind } from 'data/functions';
-import Wind from 'components/Wind/Wind';
 import windIcon from 'assets/icons/wi-direction-up.svg';
-import Date from 'components/Day/atoms/Date';
-import Icon from 'components/Day/atoms/Icon';
-import Temp from 'components/Day/molecules/Temp';
+import Wind from 'components/Wind/Wind';
+import Temp from './molecules/Temp';
+import Date from './atoms/Date';
+import Icon from './atoms/Icon';
 
 const Wrapper = styled.div`
   position: relative;
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: repeat(4, auto);
   background-color: ${colorWithOpacity(white, 0.15)};
   margin: 10px 5px 0;
   padding-top: 10px;
@@ -24,16 +24,16 @@ const Wrapper = styled.div`
   }
 `;
 
-function Day({ weather: { code }, min_temp: minTemp, max_temp: maxTemp, temp, valid_date: date, wind_dir: dir, wind_spd: speed }) {
+const Day = ({ weather, min_temp, max_temp, temp, valid_date, wind_dir, wind_spd }) => {
   return (
     <Wrapper>
-      <Icon src={getIcon(code)} />
-      <Temp maxTemp={maxTemp} minTemp={minTemp} temp={temp} />
-      <Wind day icon={windIcon} text={getWind(speed)} dir={dir} />
-      <Date>{date}</Date>
+      <Icon src={getIcon(weather.code)} />
+      <Temp maxTemp={max_temp} minTemp={min_temp} temp={temp} />
+      <Wind day icon={windIcon} text={getWind(wind_spd)} dir={wind_dir} />
+      <Date>{valid_date}</Date>
     </Wrapper>
   );
-}
+};
 
 Day.propTypes = {
   weather: PropTypes.shape({

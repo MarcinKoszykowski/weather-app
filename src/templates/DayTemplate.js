@@ -24,17 +24,16 @@ const Wrapper = styled.div`
   }
 `;
 
-function DayTemplate() {
+const DayTemplate = () => {
   const { daily } = useContext(AppContext);
 
   return (
     <Wrapper>
-      {daily.map(day => {
-        const { valid_date: date } = day;
-        return <Day key={date} {...day} />;
-      })}
+      {daily.map(day => (
+        <Day key={day.valid_date} {...day} />
+      ))}
     </Wrapper>
   );
-}
+};
 
 export default DayTemplate;

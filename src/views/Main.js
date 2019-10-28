@@ -1,23 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import MainTemplate from 'templates/MainTemplate';
-import AppContext from 'context';
-import Error from 'components/molecules/Error';
+import Error from 'components/Error/Error';
 
 const Section = styled.section`
   align-items: center;
   padding-top: 20vh;
 `;
 
-function Main() {
-  const { error } = useContext(AppContext);
-
-  return (
-    <Section>
-      <MainTemplate />
-      {error && <Error />}
-    </Section>
-  );
-}
+const Main = () => (
+  <Section>
+    <MainTemplate />
+    <Error />
+  </Section>
+);
 
 export default Main;

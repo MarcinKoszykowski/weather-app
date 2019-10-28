@@ -24,10 +24,43 @@ const formAnimation = keyframes`
     70% {transform: translateX(-100px)}
     100% {transform: translateX(0); opacity: 1}
 `;
-const loadingAnimation = keyframes`
-    0% {transform: translateY(20vh)}
-    50% {transform: translateY(-20vh)}
-    100% {transform: translateY(20vh)}
+const topLeftIconLoadingAnimation = value => keyframes`
+    0% {transform: translate(0, 0)}
+    25% {transform: translate(${value}, 0)}
+    50% {transform: translate(${value}, ${value})}
+    75% {transform: translate(0, ${value})}
+    100% {transform: translate(0, 0)}
+`;
+const topRightIconLoadingAnimation = (value, minusValue) => keyframes`
+    0% {transform: translate(0, 0)}
+    25% {transform: translate(0, ${value})}
+    50% {transform: translate(${minusValue}, ${value})}
+    75% {transform: translate(${minusValue}, 0)}
+    100% {transform: translate(0, 0)}
+`;
+const bottomLeftIconLoadingAnimation = (value, minusValue) => keyframes`
+    0% {transform: translate(0, 0)}
+    25% {transform: translate(0, ${minusValue})}
+    50% {transform: translate(${value}, ${minusValue})}
+    75% {transform: translate(${value}, 0)}
+    100% {transform: translate(0, 0)}
+`;
+const bottomRightIconLoadingAnimation = value => keyframes`
+    0% {transform: translate(0, 0)}
+    25% {transform: translate(${value}, 0)}
+    50% {transform: translate(${value}, ${value})}
+    75% {transform: translate(0, ${value})}
+    100% {transform: translate(0, 0)}
 `;
 
-export { loadingAnimation, opacityZeroToOne, errorAnimation, stormAnimation, titleAnimation, formAnimation };
+export {
+  opacityZeroToOne,
+  errorAnimation,
+  stormAnimation,
+  titleAnimation,
+  formAnimation,
+  topLeftIconLoadingAnimation,
+  topRightIconLoadingAnimation,
+  bottomRightIconLoadingAnimation,
+  bottomLeftIconLoadingAnimation,
+};

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { opacityZeroToOne } from 'styled/animations';
 import DailyTemplate from 'templates/DailyTemplate';
 import DayTemplate from 'templates/DayTemplate';
-import Created from 'components/molecules/Created';
+import Created from 'components/Created/Created';
 
 const Section = styled.section`
   margin-top: 10px;

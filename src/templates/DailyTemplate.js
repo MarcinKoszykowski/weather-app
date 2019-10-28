@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { colorWithOpacity, white } from 'styled/colors';
-import LeftColumn from 'components/organisms//LeftColumn';
-import CenterColumn from 'components/organisms//CenterColumn';
-import RightColumn from 'components/organisms//RightColumn';
-import City from 'components/atoms/City';
 import AppContext from 'context';
 import countries from 'data/countries';
-import Country from 'components/atoms/Country';
+import { colorWithOpacity, white } from 'styled/colors';
+import Left from 'components/Columns/Left';
+import Center from 'components/Columns/Center';
+import Right from 'components/Columns/Right';
+import City from 'components/Main/City';
+import Country from 'components/Main/Country';
 
 const Box = styled.div`
   background-color: ${colorWithOpacity(white, 0.15)};
@@ -16,7 +16,6 @@ const Box = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: relative;
   text-align: center;
   margin: 10px 0 0 40px;
   display: flex;
@@ -36,22 +35,20 @@ const Wrapper = styled.div`
   }
 `;
 
-function DailyTemplate() {
-  const {
-    current: { city_name: cityName, country_code: countryCode },
-  } = useContext(AppContext);
+const DailyTemplate = () => {
+  const { current } = useContext(AppContext);
 
   return (
     <Wrapper>
-      <City>{cityName}</City>
-      <Country>{countries[countryCode]}</Country>
+      <City>{current.city_name}</City>
+      <Country>{countries[current.country_code]}</Country>
       <Box>
-        <LeftColumn />
-        <CenterColumn />
-        <RightColumn />
+        <Left />
+        <Center />
+        <Right />
       </Box>
     </Wrapper>
   );
-}
+};
 
 export default DailyTemplate;

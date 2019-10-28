@@ -1,15 +1,15 @@
 import React from 'react';
-import FormMain from 'components/molecules/FormMain';
-import Title from 'components/atoms/Title';
 import { title } from 'data/value';
-import Created from 'components/molecules/Created';
+import Title from 'components/Main/Title';
+import Created from 'components/Created/Created';
+import Form from 'components/Form/Form';
 
 const MainTemplate = () => (
-  <>
+  <div>
     <Title>{title}</Title>
-    <FormMain />
+    <Form />
     <Created />
-  </>
+  </div>
 );
 
 export default MainTemplate;
