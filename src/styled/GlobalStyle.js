@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import { opacityZeroToOne, stormAnimation } from 'styled/animations';
-import { colorWithOpacity, black, darkBlue } from 'styled/colors';
-import backgroundImage from 'assets/images/background.jpg';
+import { opacityZeroToOne } from 'styled/animations';
+import { colorWithOpacity, black } from 'styled/colors';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap&subset=latin-ext');
@@ -34,22 +33,8 @@ body {
         left: 0;
         height: 150%;
         width: 100%;
-        background-color: ${colorWithOpacity(black, 0.5)};
-        animation: ${stormAnimation} 10s ease 3s infinite;
+        background-color: ${colorWithOpacity(black, 0.9)};
         z-index: -1;
-    }
-
-    &::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 150%;
-        width: 100%;
-        background-color: ${darkBlue};
-        background: url(${backgroundImage}) no-repeat;
-        background-size: cover;
-        z-index: -2;
     }
 }
 `;

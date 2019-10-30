@@ -38,14 +38,20 @@ const toggleError = setError => {
   setTimeout(() => setError(false), 2500);
 };
 
-const formOnSubmit = async (city, history, setCity, setError) => {
+const pushToDetails = (location, history) => {
+  if (location.pathname === '/') {
+    history.push(routes.details);
+  }
+};
+
+const formOnSubmit = async (city, history, setCity, setError, location) => {
   try {
     const response = await axios.get(url.daily(city));
     if (response.status !== 200) {
       toggleError(setError);
     } else {
       setCity(city);
-      history.push(routes.details);
+      pushToDetails(location, history);
     }
   } catch (err) {
     console.error(err);

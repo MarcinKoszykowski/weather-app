@@ -5,6 +5,7 @@ import { routes } from 'data/value';
 import AppContext from 'context';
 import Main from 'views/Main';
 import Details from 'views/Details';
+import Background from '../components/Background/Background';
 
 const Root = () => {
   const [data, setData] = useState({});
@@ -30,6 +31,7 @@ const Root = () => {
     <AppContext.Provider value={contextElement}>
       <BrowserRouter>
         <GlobalStyle />
+        <Background />
         <Switch>
           <Route exact path={routes.main} component={Main} />
           <Route path={routes.details} component={Details} />

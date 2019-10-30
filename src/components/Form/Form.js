@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import AppContext from 'context';
 import PropTypes from 'prop-types';
@@ -25,7 +25,7 @@ const Wrapper = styled.form`
     `}
 `;
 
-function Form({ open }) {
+function Form({ open, location }) {
   const { setCity, setError } = useContext(AppContext);
   const history = useHistory();
 
@@ -38,7 +38,7 @@ function Form({ open }) {
   const handleOnSubmit = e => {
     e.preventDefault();
 
-    formOnSubmit(formCity, history, setCity, setError);
+    formOnSubmit(formCity, history, setCity, setError, location);
   };
 
   return (
@@ -51,10 +51,13 @@ function Form({ open }) {
 
 Form.propTypes = {
   open: PropTypes.bool,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 Form.defaultProps = {
   open: false,
 };
 
-export default Form;
+export default withRouter(Form);
